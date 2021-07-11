@@ -7,9 +7,8 @@ function App() {
   return (
     <div className="App">
       <Info />
-      <AddItem text="Ethan" number={2} />
-      <AddItem text="Joe" number={5} />
-      <AddItem />
+      <AddItem text="Ethaniscool"></AddItem>
+      <ButtonState></ButtonState>
     </div>
   );
 }
@@ -38,5 +37,16 @@ AddItem.propTypes = {
   number: PropTypes.number,
   text: PropTypes.string,
 };
+
+function ButtonState() {
+  return (
+    <div>
+      <p>title: </p>
+      <p>Counter: </p>
+      <button>Update Title</button>
+      <button>Update Counter</button>
+    </div>
+  );
+}
 
 export default App;
