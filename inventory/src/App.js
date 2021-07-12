@@ -1,13 +1,13 @@
 import "./App.css";
 import { PropTypes } from "prop-types";
 import Info from "./Info.js";
+import { useState } from "react";
 
 function App() {
   // function-based component
   return (
     <div className="App">
       <Info />
-      <AddItem text="Ethaniscool"></AddItem>
       <ButtonState></ButtonState>
     </div>
   );
@@ -17,7 +17,7 @@ function App() {
 you would set for jsx component
 2) using the AddItem.defaultProps object to set the parameters to certain default values
 after componenet declaration
-*/
+
 function AddItem(props) {
   return (
     <form>
@@ -37,14 +37,26 @@ AddItem.propTypes = {
   number: PropTypes.number,
   text: PropTypes.string,
 };
+*/
 
 function ButtonState() {
+  const [title, setTitle] = useState("");
+  const [count, setCount] = useState(0);
+
+  const updateTitleClicked = () => {
+    setTitle("You now have a title.");
+  };
+
+  const updateCounterClicked = () => {
+    setCount(count + 1);
+  };
+
   return (
     <div>
-      <p>title: </p>
-      <p>Counter: </p>
-      <button>Update Title</button>
-      <button>Update Counter</button>
+      <p>title: {title}</p>
+      <p>Counter: {count}</p>
+      <button onClick={updateTitleClicked}>Update Title</button>
+      <button onClick={updateCounterClicked}>Update Counter</button>
     </div>
   );
 }
