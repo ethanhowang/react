@@ -40,7 +40,7 @@ AddItem.propTypes = {
 */
 
 function ButtonState() {
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState(""); //function that can allow you to set certain states based on clicked changes
   const [count, setCount] = useState(0);
 
   const updateTitleClicked = () => {
@@ -53,10 +53,18 @@ function ButtonState() {
 
   return (
     <div>
-      <p>title: {title}</p>
-      <p>Counter: {count}</p>
+      <Data title={title} count={count} />
       <button onClick={updateTitleClicked}>Update Title</button>
       <button onClick={updateCounterClicked}>Update Counter</button>
+    </div>
+  );
+}
+
+function Data(props) {
+  return (
+    <div>
+      <p>Title: {props.title}</p>
+      <p>Count: {props.count}</p>
     </div>
   );
 }
